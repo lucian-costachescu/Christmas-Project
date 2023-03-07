@@ -1,0 +1,82 @@
+.welcome {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.row .col {
+  flex-basis: calc(100% / 3);
+
+  padding: 0 var(--spacing-small);
+
+  margin-bottom: var(--spacing-small);
+}
+
+@media (max-width: 992px) {
+  .row .col {
+    flex-basis: 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .row .col {
+    flex-basis: 100%;
+  }
+}
+
+.img-fluid {
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+  object-fit: cover;
+}
+
+.activity {
+  padding: var(--spacing-tiny);
+  border: 1px solid var(--text-light);
+}
+
+.activity .content {
+  padding: var(--spacing-medium) var(--spacing-small);
+}
+
+.content h3 {
+  margin-bottom: var(--spacing-medium);
+}
+
+.bar {
+  border-radius: 10px;
+  height: 0.25rem;
+  background-color: var(--light-green);
+  /* background-color: var(--red); */
+  /* var(--orange-yellow); */
+}
+.activities-container > :nth-child(2n) .bar {
+  background-color: var(--orange-yellow);
+}
+
+.container h2 {
+  text-align: center;
+  margin: var(--spacing-large) 0;
+}
+
+.gallery {
+  background-color: var(--bg-secondary);
+}
+
+.gallery p {
+  text-align: center;
+
+  margin-bottom: var(--spacing-large);
+}
+
+.activity .badges span {
+  margin-right: var(--spacing-small);
+}

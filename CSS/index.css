@@ -1,0 +1,233 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+:root {
+  --text-primary: #101d42;
+  --text-secondary: #fbb44c;
+  --text-dark: #2b2922;
+  --text-light: #eaeaea;
+
+  --bg-secondary: #dfedf5;
+
+  --button-color: #146b3a;
+
+  --fs-xl: 1.5rem;
+  --fs-large: 1rem;
+  --fs-medium: 0.875rem;
+  --fs-small: 0.75rem;
+
+  --spacing-xl: 2.625rem;
+  --spacing-large: 1.75rem;
+  --spacing-medium: 1rem;
+  --spacing-small: 0.5rem;
+  --spacing-tiny: 0.25rem;
+
+  --dark-red: #bb2528;
+  --red: #ea4630;
+  --orange-yellow: #f8b229;
+  --dark-green: #165b33;
+  --light-green: #146b3a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 3.5rem;
+  color: var(--text-light);
+}
+
+h2 {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+}
+
+h3 {
+  font-size: 1.5rem;
+
+  color: var(--text-secondary);
+}
+
+p {
+  font-size: var(--fs-medium);
+  color: var(--text-dark);
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  min-width: 320px;
+
+  margin: auto;
+
+  padding: var(--spacing-medium);
+}
+
+/* !! CLASSES !! */
+
+.christmas-bg {
+  background-color: var(--dark-red);
+  background-image: url("/img/snowflakes.gif");
+  background-repeat: repeat;
+  background-attachment: fixed;
+  background-position: center top;
+}
+
+.rounded {
+  border-radius: 1rem;
+}
+
+/* !! NAVBAR STYLYING !! */
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+
+  border-bottom: 2px solid;
+  border-image: linear-gradient(
+      to right,
+      var(--dark-red),
+      var(--orange-yellow),
+      var(--dark-green)
+    )
+    2;
+
+  z-index: 1;
+}
+
+nav ul {
+  display: flex;
+
+  transition: height 200ms, opacity 200ms;
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  flex-wrap: wrap;
+}
+
+nav .menu-icon {
+  position: relative;
+
+  /* border: 2px solid var(--dark-green); */
+  border-radius: 0.35rem;
+  font-size: 1.5em;
+
+  padding: var(--spacing-medium);
+}
+
+nav .menu-icon {
+  color: var(--text-light);
+  display: none;
+}
+
+nav input[type="checkbox"] {
+  display: none;
+}
+
+nav .nav-title {
+  font-size: var(--fs-xl);
+}
+
+nav a {
+  font-size: var(--fs-small);
+  /* Transformam textul sa contina doar majuscule.*/
+  /* text-transform: uppercase; */
+
+  color: var(--text-light);
+
+  padding: var(--spacing-medium);
+
+  transition: color 200ms ease;
+}
+nav a:hover {
+  color: var(--orange-yellow);
+}
+
+/* !! FOOTER RULES !! */
+
+footer p {
+  color: var(--text-light);
+  text-align: center;
+  padding: 1rem 0;
+  margin: 0;
+}
+footer {
+  background-color: var(--dark-green);
+}
+
+/* !! MOBILE STYLING !! */
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: row;
+    /* display: block; */
+    height: 0;
+
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  nav .menu-icon-container {
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+
+  nav .menu-icon {
+    display: block;
+  }
+
+  nav input[type="checkbox"] {
+    /* Pe mobil checkbox-ul trebuie sa fie prezent pe ecran. */
+    display: block;
+
+    /* Practic, punem checkbox-ul deasupra iconitei de meniu. */
+    position: absolute;
+    top: calc(2 * var(--spacing-medium));
+    right: calc(2 * var(--spacing-medium));
+    width: 1.5rem;
+    height: 1.5rem;
+    /* scale: 2; */
+
+    /* Atentie, opacity 0 doar ascunde vizual elementul, ele inca este prezent pe ecran.*/
+    opacity: 0;
+
+    margin: 0;
+
+    /* Schimbam afisajul cursorului mouse-ului. */
+    cursor: pointer;
+  }
+  nav input[type="checkbox"]:checked ~ .menu-icon-container ul {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    height: 125px;
+  }
+}
